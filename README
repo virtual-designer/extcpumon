@@ -1,0 +1,4 @@
+Extended CPU Monitor Kernel Module for Linux
+============================================
+
+Currently, the module only supports monitoring P-state voltages of CPUs.
