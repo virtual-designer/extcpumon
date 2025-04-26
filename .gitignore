@@ -1,0 +1,11 @@
+/disk
+*.img
+*.log
+*.o
+/test
+/test.c
+/test.S
+/vmlinuz
+/initramfs.img
+/alpine.iso
+/qemu.sh

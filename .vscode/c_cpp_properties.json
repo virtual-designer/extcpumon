@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/**",
+                "/usr/local/include/**",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/include/**",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/include/**",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/arch/x86/include/**",
+                "/usr/lib/gcc/x86_64-redhat-linux/15/include/**",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/arch/x86/include",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/arch/x86/include/generated",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/include",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/include",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/arch/x86/include/uapi",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/arch/x86/include/generated/uapi",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/include/uapi",
+                "/usr/src/kernels/6.14.3-300.fc42.x86_64/include/generated/uapi"
+            ],
+            "forcedInclude": [
+                "/lib/modules/6.14.3-300.fc42.x86_64/build/include/linux/compiler-version.h",
+                "/lib/modules/6.14.3-300.fc42.x86_64/build/include/linux/compiler_types.h",
+                "/lib/modules/6.14.3-300.fc42.x86_64/build/include/linux/types.h",
+                "/lib/modules/6.14.3-300.fc42.x86_64/build/include/linux/bitops.h",
+                "/lib/modules/6.14.3-300.fc42.x86_64/build/include/linux/string.h",
+                "/lib/modules/6.14.3-300.fc42.x86_64/build/include/linux/kernel.h",
+                "/lib/modules/6.14.3-300.fc42.x86_64/build/include/linux/init.h",
+                "/lib/modules/6.14.3-300.fc42.x86_64/build/include/linux/kconfig.h"
+            ],
+            "defines": ["__KERNEL__", "MODULE", "__GNUC__"],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++98",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
