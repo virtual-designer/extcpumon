@@ -1,14 +1,14 @@
 /*
  * extcpumon.c - A hwmon module for Intel Sandy Bridge or newer CPUs
  * that can monitor extra information.
- * 
+ *
  * Copyright (C) 2025 Ar Rakin <rakinar2@onesoftnet.eu.org>.
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -59,9 +59,9 @@ static struct hwmon_ops extcpumon_ops = {
 
 static struct hwmon_channel_info *extcpumon_channel_info[] = {
     & (struct hwmon_channel_info) {
-		.type = hwmon_in,	
+		.type = hwmon_in,
 		.config = (u32 []) {
-			0, 0	
+			0, 0
 		}
 	},
     NULL
@@ -103,7 +103,7 @@ static umode_t extcpumon_is_visible(const void *data,
             case hwmon_in_min:
             case hwmon_in_max:
                 return 0444;
-            
+
             default:
                 return 0;
         }
@@ -238,7 +238,7 @@ static int __init extcpumon_init(void)
         if (cpu_count >= allocated_core_count || max_core_id >= allocated_core_count) {
             struct cpu_core *new_cpus;
             size_t prev_allocated_core_count = allocated_core_count;
-            
+
             allocated_core_count += 16;
 
             if (max_core_id > allocated_core_count) {
@@ -249,7 +249,7 @@ static int __init extcpumon_init(void)
                 allocated_core_count = cpu_count;
             }
 
-            new_cpus = krealloc(cpus, allocated_core_count * sizeof (unsigned int), GFP_KERNEL);
+            new_cpus = krealloc(cpus, allocated_core_count * sizeof (struct cpu_core), GFP_KERNEL);
 
             if (!new_cpus) {
                 pr_err("failed to reallocate memory for cpu data\n");
@@ -262,7 +262,7 @@ static int __init extcpumon_init(void)
             for (size_t i = prev_allocated_core_count; i < allocated_core_count; i++) {
                 new_cpus[i].is_available = false;
             }
-            
+
             cpus = new_cpus;
         }
 
@@ -296,14 +296,14 @@ static int __init extcpumon_init(void)
 
         pr_info("CPU %u: Core ID %u\n", cpus[i].cpu_id, cpus[i].core_id);
     }
-    
+
     pdev = platform_device_register_simple(DRVNAME, -1, NULL, 0);
 
     if (IS_ERR(pdev)) {
         pr_err("failed to register platform device\n");
         return PTR_ERR(pdev);
     }
-    
+
     pr_info("initialized\n");
     return platform_driver_register(&driver);
 }
